@@ -1,0 +1,6 @@
+server:
+  port: 8080
+
+offshore:
+  host: "offshore-proxy"
+  port: 9091
