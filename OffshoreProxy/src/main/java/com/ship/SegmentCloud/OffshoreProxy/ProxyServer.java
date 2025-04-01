@@ -24,7 +24,7 @@ public class ProxyServer {
             System.out.println("Offshore Proxy TCP Server is running on port " + proxyPort);
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                new Thread(() -> handleRequest(clientSocket)).start();
+                handleRequest(clientSocket);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -45,6 +45,12 @@ public class ProxyServer {
             writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
