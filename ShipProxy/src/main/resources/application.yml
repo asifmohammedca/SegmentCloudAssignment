@@ -4,3 +4,4 @@ server:
 offshore:
   host: "offshore-proxy"
   port: 9091
+  #host: "localhost"
